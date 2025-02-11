@@ -1,0 +1,21 @@
+.fullStruct {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.struct {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    padding: 10px;
+}
+
+.inputStyle {
+    width: 80%;
+    margin-bottom: 15px;
+}

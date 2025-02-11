@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import Block from "./Block"
+import "./css/struct.css"
 
 function SensorStruct() {
     const [rawSensor, setRawSensor] = useState("")
@@ -28,19 +30,28 @@ function SensorStruct() {
 
     return (
         <>
-            <input placeholder="sensor-data" value={rawSensor} onChange={handleInput}/>
-
-            {error !== "" ? (
-                <p>{error}</p>
-            ) : Object.keys(sensor).length > 0 ? (
-                <ul>
-                    {Object.entries(sensor).map(([key, value], index) => (
-                        <li key={index}>
-                            <strong>{key}:</strong> {String(value)}
-                        </li>
-                    ))}
-                </ul>
-            ) : null}
+            <div className="fullStruct">
+                <div className="struct">
+                    <input placeholder="sensor-data" value={rawSensor} onChange={handleInput} className="inputStyle"/>
+                    {error !== "" ? (
+                        <p>{error}</p>
+                    ) : Object.keys(sensor).length > 0 ? (
+                        Object.entries(sensor).map(([key, value], index) => (
+                            <Block key={index} id={key} value={value}></Block>
+                        ))
+                    ) : null}
+                </div>
+                <div className="struct">
+                    <input placeholder="sensor-data" value={rawSensor} onChange={handleInput} className="inputStyle"/>
+                    {error !== "" ? (
+                        <p>{error}</p>
+                    ) : Object.keys(sensor).length > 0 ? (
+                        Object.entries(sensor).map(([key, value], index) => (
+                            <Block key={index} id={key} value={value}></Block>
+                        ))
+                    ) : null}
+                </div>
+            </div>
         </>
     )
 }
