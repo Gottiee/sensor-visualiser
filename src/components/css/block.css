@@ -1,10 +1,59 @@
 .mainBlock {
-    background: #f4eeff; 
-    height: 60px;
-    width: 100%;
+    min-height: 40px;
     border: solid 1px;
     border-radius: 10px;
     margin-bottom: 5px;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    flex-shrink: 0;
+    gap: 5px;
+}
+
+.textBlock {
+    display: flex;
     flex-direction: row;
+    gap: 5px;
+}
+
+.toOpenBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.pBlock {
+    word-break:break-all;
+    margin-block: 0px;
+    min-width: 40px;
+}
+
+.pDot {
+    min-width: 0;
+}
+
+/* Dynamique */
+
+.level1 {
+    background: #f4eeff; 
+}
+
+.level2 {
+    background: #dcd6f7; 
+}
+
+.level3 {
+	background: #a6b1e1; 
+}
+
+.level4 {
+	background: #424874; 
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+	background: #f0b775; 
 }

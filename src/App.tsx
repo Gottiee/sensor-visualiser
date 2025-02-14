@@ -3,7 +3,10 @@ import SensorStruct from "./components/SensorStruct"
 function App() {
   return (
     <>
-      <SensorStruct />
+      <div className="fullStruct">
+        <SensorStruct comparaison={true}/>
+        <SensorStruct comparaison={false}/>
+      </div>
     </>
   )
 }
