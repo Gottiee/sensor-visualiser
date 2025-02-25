@@ -25,7 +25,7 @@
 }
 
 .pBlock {
-    word-break:break-all;
+    word-break: break-all;
     margin-block: 0px;
     min-width: 40px;
 }
@@ -37,25 +37,25 @@
 /* Dynamique */
 
 .level1 {
-    background: #f4eeff; 
+    background: #f4eeff;
 }
 
 .level2 {
-    background: #dcd6f7; 
+    background: #dcd6f7;
 }
 
 .level3 {
-	background: #a6b1e1; 
+    background: #a6b1e1;
 }
 
 .level4 {
-	background: #424874; 
+    background: #424874;
 }
 
 .sticky {
     position: sticky;
     top: 0;
-	background: #f0b775; 
+    background: #f0b775;
 }
 
 .highlight {
