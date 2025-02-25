@@ -6,9 +6,10 @@ interface Props {
     id?: string;
     level: number;
     sticky: boolean;
+    highlight: Map<string, number>
 }
 
-const Block = ({id, value, level, sticky}: Props) => {
+const Block = ({id, value, level, sticky, highlight}: Props) => {
     const [isOpen, setIsOpen] = useState(false)
     const [displayArrow, setDisplayArrow] = useState(false)
 
@@ -62,7 +63,7 @@ const Block = ({id, value, level, sticky}: Props) => {
                         typeof item === "object" 
                         && item !== null 
                         && Object.entries(item).map(([key, val], index) => (
-                            <Block id={key} value={val} key={index} level={level+1} sticky={sticky}/>
+                            <Block id={key} value={val} key={index} level={level+1} sticky={sticky} highlight={highlight}/>
                     ))))}
                 </>
             )
@@ -71,7 +72,7 @@ const Block = ({id, value, level, sticky}: Props) => {
             return (
                 <>
                     {Object.entries(value).map(([key, val], index) => (
-                        <Block id={key} value={val} key={index} level={level+1} sticky={sticky}/>
+                        <Block id={key} value={val} key={index} level={level+1} sticky={sticky} highlight={highlight}/>
                     ))}
                 </>
             )
@@ -80,6 +81,10 @@ const Block = ({id, value, level, sticky}: Props) => {
     }
 
     const getColorClass = (status: number) => {
+        let color = getIdHighlight()
+        if (color != "") {
+            return color
+        }
         switch (status % 4) {
             case 0:
                 return "level1";
@@ -98,6 +103,30 @@ const Block = ({id, value, level, sticky}: Props) => {
         return 
     }
 
+    const getIdHighlight = () => {
+        let tmp
+        if (id){
+            if (tmp = highlight.get(id)){
+               if (tmp == 1)
+                return "highlight"
+            }
+        }
+        return ""
+    }
+
+    const getValueHighlight = () => {
+        let tmp
+        if (id){
+            if (tmp = highlight.get(id)){
+               if (tmp == 2){
+                return "highlight"
+               }
+            }
+        }
+        return ""
+    }
+
+
     return (
         <>
             <div onClick={handleClick} className={"mainBlock " + getColorClass(level) + " " + isSticky()}>
@@ -108,7 +137,7 @@ const Block = ({id, value, level, sticky}: Props) => {
                         <p className="pBlock pDot"> : </p>
                     </>
                     }
-                    <p className="pBlock">{valueToString(value)}</p>
+                    <p className={"pBlock " + getValueHighlight()}>{valueToString(value)}</p>
                 </div>
                 {displayArrow && <div className="toOpenBlock"><p className="pBlock">{isOpen ? "▶" : "▼"}</p></div>}
             </div>
