@@ -27,6 +27,7 @@ function App() {
                     setComparaison={setCompare}
                     comparaisonEnable={compare}
                     highlight={leftHighlight}
+                    updateMap={{ setLeftHighlight, setRightHighlight }}
                 />
                 <SensorStruct
                     leftBlock={false}

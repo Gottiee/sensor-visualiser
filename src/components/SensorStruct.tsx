@@ -24,7 +24,7 @@ interface Props {
     setComparaison?: (value: boolean) => void;
     comparaisonEnable: boolean;
 
-    updateMap?: {
+    updateMap: {
         setLeftHighlight: (value: Map<string, number>) => void;
         setRightHighlight: (value: Map<string, number>) => void;
     };
